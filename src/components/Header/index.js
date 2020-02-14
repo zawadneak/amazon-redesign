@@ -149,16 +149,16 @@ export default function Header() {
           >
             <Text
               style={{
-                color: '#fff',
+                color: '#99a0b2',
                 borderWidth: 1,
-                borderColor: '#fff',
+                borderColor: '#99a0b2',
                 padding: 10,
                 borderRadius: 5,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              Close
+              Cancel
             </Text>
           </TouchableOpacity>
         </ModalContainer>

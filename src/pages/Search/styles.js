@@ -19,9 +19,8 @@ export const Input = styled.TextInput`
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.25);
 `;
 
-export const List = styled.View`
+export const List = styled.FlatList`
   flex: 1;
-  align-items: center;
 `;
 
 export const Item = styled.TouchableOpacity`
@@ -38,7 +37,6 @@ export const ItemImage = styled.Image`
   width: 90px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  resize-mode: stretch;
 `;
 
 export const LabelHolder = styled.View`
