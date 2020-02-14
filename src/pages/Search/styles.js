@@ -46,14 +46,11 @@ export const LabelHolder = styled.View`
 export const ItemTitle = styled.Text`
   font-weight: bold;
   margin-top: 10px;
-`;
-
-export const ItemBrand = styled.Text`
-  margin: 0px;
+  width: 240px;
+  height: 35px;
 `;
 
 export const ItemPrice = styled.Text`
-  margin-top: 15px;
   font-size: 20px;
 `;
 

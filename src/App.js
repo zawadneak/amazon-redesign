@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import Routes from './routes';
 
+import './config/ReactotronConfig';
+
 import Header from './components/Header/index';
 import LoginModal from './components/LoginModal/index';
 
