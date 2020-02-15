@@ -26,7 +26,7 @@ export const List = styled.FlatList`
 export const Item = styled.TouchableOpacity`
   height: 100px;
   width: 350px;
-  margin: 20px;
+  margin: 10px;
   background-color: #99a0b2;
   border-radius: 4px;
   flex-direction: row;

@@ -43,10 +43,11 @@ export const Box = styled.View`
   width: 230px;
   align-items: center;
   flex-direction: row;
+  margin: 5px 0px;
 `;
 export const ItemImage = styled.Image`
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
   border-radius: 5px;
 `;
 
@@ -56,7 +57,7 @@ export const ItemName = styled.Text`
   font-weight: bold;
 `;
 
-export const ItemAmmount = styled.TextInput`
+export const ItemAmount = styled.TextInput`
   height: 40px;
   width: 40px;
   margin: 0 5px;

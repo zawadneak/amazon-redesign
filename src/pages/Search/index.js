@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -16,7 +16,6 @@ import {
   ModalContainer,
   Product,
   Title,
-  Brand,
   Price,
   ButtonHolder,
   AddToCartButton,
@@ -27,7 +26,6 @@ import {
   Label,
 } from './styles';
 
-import shirt from '../../assets/img/shirt.png';
 import server from '../../../server.json';
 
 import background from '../../assets/img/Background.png';
@@ -46,14 +44,22 @@ export default function Search() {
     setProduct(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   const handleOpen = item => {
     setItem(item);
     setVisible(true);
   };
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch({
+      type: '@cart/ADD',
+      product: modalItem,
+    });
+  };
   return (
     <Container source={background}>
-      <Input editable={false} value="Shoe" />
+      <Input editable={false} value="Sneakers" />
       <List
         keyExtractor={item => item.id}
         data={product}
@@ -75,7 +81,7 @@ export default function Search() {
           <Title>{modalItem.title}</Title>
           <Price>{modalItem.formatedPrice}</Price>
           <ButtonHolder>
-            <AddToCartButton>
+            <AddToCartButton onPress={handleAddToCart}>
               <Icon name="cart-plus" color="#99a0b2" size={20} />
               <CartLabel>Add</CartLabel>
             </AddToCartButton>
