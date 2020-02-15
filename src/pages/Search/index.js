@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Modal } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import format from '../../util/format';
@@ -29,6 +29,8 @@ import {
 import server from '../../../server.json';
 
 import background from '../../assets/img/Background.png';
+
+console.disableYellowBox = true;
 
 export default function Search() {
   const [visible, setVisible] = useState(false);

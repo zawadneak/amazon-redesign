@@ -113,8 +113,7 @@ export default function Header() {
               margin: 20,
             }}
           >
-            <Icon name="shopping-cart" size={25} />
-            Cart
+            <Icon name="shopping-cart" size={25} /> Cart
           </Text>
           <CartHolder>
             {cart &&

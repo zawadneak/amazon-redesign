@@ -21,6 +21,7 @@ export const Input = styled.TextInput`
 
 export const List = styled.FlatList`
   flex: 1;
+  margin-top: 10px;
 `;
 
 export const Item = styled.TouchableOpacity`
@@ -35,8 +36,9 @@ export const Item = styled.TouchableOpacity`
 export const ItemImage = styled.Image`
   height: 100px;
   width: 90px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  resize-mode: center;
+  margin-left: 10px;
+  border-radius: 5px;
 `;
 
 export const LabelHolder = styled.View`
@@ -48,10 +50,14 @@ export const ItemTitle = styled.Text`
   margin-top: 10px;
   width: 240px;
   height: 35px;
+  font-size: 15px;
 `;
 
 export const ItemPrice = styled.Text`
   font-size: 20px;
+  color: #191c23;
+  text-align: right;
+  margin: 10px;
 `;
 
 export const ModalContainer = styled.View`

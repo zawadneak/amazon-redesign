@@ -11,7 +11,6 @@ export const Container = styled.ImageBackground`
 
 export const List = styled.FlatList`
   align-content: center;
-  height: 300px;
 `;
 
 export const ListBox = styled.TouchableOpacity`
@@ -37,7 +36,7 @@ export const Box = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   height: 160px;
-  margin: 20px;
+  margin: 25px;
   width: 350px;
   background-color: #99a0b2;
   border-radius: 10px;
