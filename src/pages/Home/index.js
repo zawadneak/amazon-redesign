@@ -18,7 +18,7 @@ import sales from '../../assets/img/sales.png';
 
 export default function Login() {
   const renderData = item => (
-    <ListBox>
+    <ListBox key={item.name}>
       <ProductImage source={watch} />
       <ProductBrand source={brand} />
     </ListBox>

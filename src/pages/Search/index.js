@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Modal } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import format from '../../util/format';
+
 import {
   Container,
   Input,
@@ -9,12 +12,10 @@ import {
   LabelHolder,
   ItemImage,
   ItemTitle,
-  ItemBrand,
   ItemPrice,
   ModalContainer,
   Product,
   Title,
-  Brand,
   Price,
   ButtonHolder,
   AddToCartButton,
@@ -25,34 +26,64 @@ import {
   Label,
 } from './styles';
 
-import shirt from '../../assets/img/shirt.png';
+import server from '../../../server.json';
 
 import background from '../../assets/img/Background.png';
 
+console.disableYellowBox = true;
+
 export default function Search() {
   const [visible, setVisible] = useState(false);
+  const [product, setProduct] = useState(server.products);
+  const [modalItem, setItem] = useState([]);
 
+  useEffect(() => {
+    const data = product.map(item => ({
+      ...item,
+      formatedPrice: format(item.price),
+    }));
+
+    setProduct(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const handleOpen = item => {
+    setItem(item);
+    setVisible(true);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch({
+      type: '@cart/ADD',
+      product: modalItem,
+    });
+  };
   return (
     <Container source={background}>
-      <Input placeholder="What are you looking for today?" />
-      <List>
-        <Item onPress={() => setVisible(true)}>
-          <ItemImage source={shirt} />
-          <LabelHolder>
-            <ItemTitle>Full Sleeves Blue Knitted Shirt</ItemTitle>
-            <ItemBrand>Amazon</ItemBrand>
-            <ItemPrice>$50.00</ItemPrice>
-          </LabelHolder>
-        </Item>
-      </List>
+      <Input editable={false} value="Sneakers" />
+      <List
+        keyExtractor={item => item.id}
+        data={product}
+        renderItem={({ item }) => {
+          return (
+            <Item onPress={() => handleOpen(item)} id={item.id}>
+              <ItemImage source={{ uri: item.image }} />
+              <LabelHolder>
+                <ItemTitle>{item.title}</ItemTitle>
+                <ItemPrice>{item.formatedPrice}</ItemPrice>
+              </LabelHolder>
+            </Item>
+          );
+        }}
+      />
       <Modal visible={visible} transparent animationType="slide">
         <ModalContainer source={background}>
-          <Product source={shirt} />
-          <Title>Full Sleeves Blue Knitted Shirt</Title>
-          <Brand>Amazon</Brand>
-          <Price>$50.00</Price>
+          <Product source={{ uri: modalItem.image }} />
+          <Title>{modalItem.title}</Title>
+          <Price>{modalItem.formatedPrice}</Price>
           <ButtonHolder>
-            <AddToCartButton>
+            <AddToCartButton onPress={handleAddToCart}>
               <Icon name="cart-plus" color="#99a0b2" size={20} />
               <CartLabel>Add</CartLabel>
             </AddToCartButton>

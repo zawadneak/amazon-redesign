@@ -19,15 +19,15 @@ export const Input = styled.TextInput`
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.25);
 `;
 
-export const List = styled.View`
+export const List = styled.FlatList`
   flex: 1;
-  align-items: center;
+  margin-top: 10px;
 `;
 
 export const Item = styled.TouchableOpacity`
   height: 100px;
   width: 350px;
-  margin: 20px;
+  margin: 10px;
   background-color: #99a0b2;
   border-radius: 4px;
   flex-direction: row;
@@ -36,9 +36,9 @@ export const Item = styled.TouchableOpacity`
 export const ItemImage = styled.Image`
   height: 100px;
   width: 90px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  resize-mode: stretch;
+  resize-mode: center;
+  margin-left: 10px;
+  border-radius: 5px;
 `;
 
 export const LabelHolder = styled.View`
@@ -48,15 +48,16 @@ export const LabelHolder = styled.View`
 export const ItemTitle = styled.Text`
   font-weight: bold;
   margin-top: 10px;
-`;
-
-export const ItemBrand = styled.Text`
-  margin: 0px;
+  width: 240px;
+  height: 35px;
+  font-size: 15px;
 `;
 
 export const ItemPrice = styled.Text`
-  margin-top: 15px;
   font-size: 20px;
+  color: #191c23;
+  text-align: right;
+  margin: 10px;
 `;
 
 export const ModalContainer = styled.View`
